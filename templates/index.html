@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}{{ info.name }} - Home{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <h1>Hi, I'm {{ info.name }}</h1>
+        <p class="subtitle">{{ info.title }} | {{ info.semester }}</p>
+        <p class="mt-4" style="max-width: 600px; margin: 0 auto; color: #aaa;">
+            {{ info.about[:150] }}...
+        </p>
+        <div class="mt-4">
+            <a href="/about" class="btn btn-lg btn-outline-light me-3">About Me</a>
+            <a href="/projects" class="btn btn-lg" style="background: linear-gradient(45deg, #00d9ff, #00ff88); color: #1a1a2e;">View Projects</a>
+        </div>
+    </div>
+</section>
+
+<!-- Quick Info Cards -->
+<section class="py-5">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 text-center p-4">
+                    <i class="fas fa-code fa-3x mb-3" style="color: #00d9ff;"></i>
+                    <h3>Skills</h3>
+                    <p class="mb-0">{{ info.skills|length }}+ Technologies</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 text-center p-4">
+                    <i class="fas fa-project-diagram fa-3x mb-3" style="color: #00ff88;"></i>
+                    <h3>Projects</h3>
+                    <p class="mb-0">{{ info.projects|length }}+ Completed</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 text-center p-4">
+                    <i class="fas fa-graduation-cap fa-3x mb-3" style="color: #ff6b6b;"></i>
+                    <h3>Education</h3>
+                    <p class="mb-0">{{ info.semester }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Preview -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">My Skills</h2>
+        <div class="text-center">
+            {% for skill in info.skills %}
+            <span class="skill-badge">{{ skill }}</span>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

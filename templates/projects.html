@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Projects - {{ info.name }}{% endblock %}
+
+{% block content %}
+<div class="container" style="padding-top: 100px;">
+    <h1 class="text-center mb-5">My Projects</h1>
+    
+    <div class="row g-4">
+        {% for project in info.projects %}
+        <div class="col-md-6">
+            <div class="card h-100 p-4">
+                <h3>{{ project.name }}</h3>
+                <p style="color: #aaa;">{{ project.description }}</p>
+                <div class="mt-3">
+                    <span class="skill-badge">{{ project.tech }}</span>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    
+    <div class="text-center mt-5">
+        <p style="color: #888;">More projects coming soon!</p>
+    </div>
+</div>
+{% endblock %}
