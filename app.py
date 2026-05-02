@@ -78,7 +78,7 @@ def send_message():
     if not sender_password:
         # Replace this with your actual 16-character Gmail App Password
         # Example: "abcd efgh ijkl mnop" (without quotes)
-        sender_password = "your pass here"
+        sender_password = "cpeu zqee dkzi sxmh"
     recipient_email = "wasi.officialll@gmail.com"
     
     try:
@@ -115,4 +115,4 @@ Message:
     return redirect(url_for('contact'))
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
